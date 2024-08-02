@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h1>User Dashboard</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" class="form-control" [(ngModel)]="mobile" name="mobile" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Validate</button>
+    </form>
+    <div *ngIf="plans.length">
+      <h3>Select a Recharge Plan:</h3>
+      <div class="form-group">
+        <label for="plan">Plans:</label>
+        <select id="plan" class="form-control" [(ngModel)]="selectedPlan" name="plan" required>
+          <option *ngFor="let plan of plans" [value]="plan.id">{{ plan.name }}</option>
+        </select>
+      </div>
+      <button class="btn btn-success" (click)="recharge()">Recharge</button>
+    </div>
+  </div>
+  
+  
